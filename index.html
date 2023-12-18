@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Cell incremental</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="breakinf.js"></script>
+    
+    <script>
+        function format()
+        {
+           
+                document.getElementById('cells1').textContent = a;
+                document.getElementById('cells2').textContent = ' cells'
+            
+
+                document.getElementById('cell_growth1').textContent = 'Your cell growth is '
+                document.getElementById('cell_growth2').textContent = 'x'+b
+                document.getElementById('cell_growth3').textContent = ' every second.'
+            
+            if(cells>cell_soft_start)
+            {
+                document.getElementById('cell_softcap1').textContent = 'Due to overpopulation, cells after '+l+' multiply'
+                document.getElementById('cell_softcap2').textContent = ' x'+c
+                document.getElementById('cell_softcap3').textContent = ' slower.'
+            }
+            else
+            {
+                document.getElementById('cell_softcap1').textContent = ''
+                document.getElementById('cell_softcap2').textContent = ''
+                document.getElementById('cell_softcap3').textContent = ''
+            }
+            
+    
+                document.getElementById('U1_info1').textContent = 'Cost: '+d+' cells'
+                document.getElementById('U1_info2').textContent = 'x'+f+' cell growth'
+                document.getElementById('U1_info3').textContent = 'x'+e
+
+
+                document.getElementById('U2_info1').textContent = 'Cost: '+h+' cells'
+                document.getElementById('U2_info2').textContent = 'x'+j+' later'
+                document.getElementById('U2_info3').textContent = 'x'+i
+
+
+                document.getElementById('U3_info0').textContent = '+'+n
+                document.getElementById('U3_info1').textContent = 'Cost: '+mm+' cells'
+                document.getElementById('U3_info2').textContent = '+'+o+''
+
+                document.getElementById('U4_info1').textContent = '+'+z
+                document.getElementById('U4_info2').textContent = 'Cost: '+y+' cells'
+                document.getElementById('U4_info3').textContent = '/'+aa+''
+
+
+                document.getElementById('cellboost_info1').textContent = 'Required: '+q+' cells'
+                document.getElementById('cellboost_info2').textContent = '+'+r+'%'
+                document.getElementById('cellboost_info3').textContent = ''+s+'%'
+
+
+                document.getElementById('cellupgrade_info1').textContent = 'Cost: '+u+' cells'
+                document.getElementById('cellupgrade_info2').textContent = 'x'+v+''
+                document.getElementById('cellupgrade_info3').textContent = 'x'+w+' cell growth'
+
+                document.getElementById('entropy_info1').textContent = 'x'+ae+''
+                document.getElementById('entropy_info2').textContent = af
+                document.getElementById('entropy_info3').textContent = ac
+
+                document.getElementById('notation').textContent = notation
+
+
+                if(entropy_gain>-1)
+                {
+                    document.getElementById('regrow_info1').textContent = '+'+ad
+                }
+                else
+                {
+                    document.getElementById('regrow_info1').textContent = '+0'
+                }
+
+                if(best_entropy>-1)
+                {
+                    document.getElementById('regrow_tab').style.display = 'inline'
+                }
+                else
+                {
+                    document.getElementById('regrow_tab').style.display = 'none'
+                }
+
+                if(menu==1)
+                {
+                    document.getElementById('cell_content').style.display = 'block'
+                }
+                else
+                {
+                    document.getElementById('cell_content').style.display = 'none'
+                }
+
+                if(menu==3)
+                {
+                    document.getElementById('entropy_content').style.display = 'block'
+                }
+                else
+                {
+                    document.getElementById('entropy_content').style.display = 'none'
+                }
+
+                if(menu==2)
+                {
+                    document.getElementById('options_content').style.display = 'block'
+                }
+                else
+                {
+                    document.getElementById('options_content').style.display = 'none'
+                }
+                
+
+
+                if(best_cells>3)
+                {
+                    document.getElementById('cellupg2').style.display = 'inline'
+                    document.getElementById('cellupg3').style.display = 'none'
+                    document.getElementById('cellboost').style.display = 'none'
+                    document.getElementById('supercellupgrade1').style.display = 'none'
+                    document.getElementById('cellupg4').style.display = 'none'
+                    document.getElementById('regrow').style.display = 'none'
+
+                    if(best_cells>6)
+                    {
+                        document.getElementById('cellupg3').style.display = 'inline'
+                        document.getElementById('cellboost').style.display = 'none'
+                        document.getElementById('supercellupgrade1').style.display = 'none'
+                        document.getElementById('cellupg4').style.display = 'none'
+                        document.getElementById('regrow').style.display = 'none'
+
+                        if(best_cells>9)
+                        {
+                        document.getElementById('cellboost').style.display = 'inline'
+                        document.getElementById('supercellupgrade1').style.display = 'none'
+                        document.getElementById('cellupg4').style.display = 'none'
+                        document.getElementById('regrow').style.display = 'none'
+
+                            if(best_cell_boosts>1)
+                            {
+                            document.getElementById('supercellupgrade1').style.display = 'inline'
+                            document.getElementById('cellupg4').style.display = 'none'
+                            document.getElementById('regrow').style.display = 'none'
+
+                                if(best_cell_boosts>2)
+                                {
+                                document.getElementById('cellupg4').style.display = 'inline'
+
+                                    if(best_cells>89)
+                                    {
+                                    document.getElementById('regrow').style.display = 'inline'
+                                    }
+                                    else
+                                    {
+                                    document.getElementById('regrow').style.display = 'none'
+                                    }
+                                }
+                                else
+                                {
+                                document.getElementById('cellupg4').style.display = 'none'
+                                }
+                            }
+                            else
+                            {
+                            document.getElementById('supercellupgrade1').style.display = 'none'
+                            }
+                        }
+                        else
+                        {
+                        document.getElementById('cellboost').style.display = 'none'
+                        }
+                    }
+                    else
+                    {
+                        document.getElementById('cellupg3').style.display = 'none'
+                    }
+                }
+                else
+                {
+                    document.getElementById('cellupg2').style.display = 'none'
+                    document.getElementById('cellupg3').style.display = 'none'
+                    document.getElementById('cellboost').style.display = 'none'
+                    document.getElementById('supercellupgrade1').style.display = 'none'
+                    document.getElementById('cellupg4').style.display = 'none'
+                    document.getElementById('regrow').style.display = 'none'
+                }
+            
+        }
+
+        setInterval(format,10)
+
+    </script>
+    
+</head>
+
+
+
+<body style="background-color: rgb(7, 0, 66); background-image:url(bg.jpg); background-size: cover; background-blend-mode: darken;">
+    <div>
+        <center><button onclick="tabb1()" class="menu1">Main</button> <button onclick="tabb3()" id="regrow_tab" class="menu3">Entropy</button> <button onclick="tabb2()" class="menu2">Options</button></center>
+    </div>
+
+        <div id="cell_content" style="font-family: Segoe UI;">
+    <center><font style="font-size: 45px; color: rgb(0, 255, 55);" id="cells1"></font>  <font style="font-size: 30px; color: rgb(0, 255, 55);" id="cells2"></font>
+    <br> <font style="font-size: 20px; color: rgb(0, 255, 85);" id="cell_growth1"></font>  <font style="font-size: 35px; color: rgb(0, 255, 85);" id="cell_growth2"></font>  <font style="font-size: 20px; color: rgb(0, 255, 85);" id="cell_growth3"></font>
+    <br> <font style="font-size: 25px; color: red;" id="cell_softcap1"></font>  <font style="font-size: 40px; color: rgb(255, 121, 121);" id="cell_softcap2"></font>  <font style="font-size: 35px; color: red;" id="cell_softcap3"></font></center>
+
+        <center><button onclick="U1()" class="cellupgrade"><font style="font-size: 30px">-Cell replication-</font> <br> <font>Increase cell growth by </font> <font id="U1_info3"></font> <br> <font id="U1_info1"></font> <br> <font id="U1_info2"></font></button>
+            <button id="cellupg2" onclick="U2()" class="cellupgrade"><font style="font-size: 30px">-Delayed problem-</font> <br> <font>Delay the softcap start by </font> <font id="U2_info3"></font> <br> <font id="U2_info1"></font> <br> <font id="U2_info2"></font></button>
+            <button id="cellupg3" onclick="U3()" class="cellupgrade"><font style="font-size: 30px">-Cells 2.0-</font> <br> <font>Add </font> <font id="U3_info0"></font> <font>to U1's base.</font> <br> <font id="U3_info1"></font> <br> <font id="U3_info2"></font></button>
+            <button id="cellupg4" onclick="U4()" class="cellupgrade"><font style="font-size: 30px">-Weak problem-</font> <br> <font>Divide softcap's formula by </font> <font id="U4_info1"></font> <br> <font id="U4_info2"></font> <br> <font id="U4_info3"></font></button>
+            <br> <button id="cellboost" onclick="cell_boost()" class="cellboost"><font style="font-size: 30px">-Cell boost-</font> <br> <font>Reset cell upgrades to improve them by </font> <br> <font id="cellboost_info2"></font> <br> <font id="cellboost_info1"></font> <br> <font>Currently: </font> <font id="cellboost_info3"></font></button>
+            <br> <button id="supercellupgrade1" onclick="cell_upgrade()" class="supercellupgrade"><font style="font-size: 30px">-Super cell upgrade-</font> <br> <font>Multiply cell growth by </font> <font id="cellupgrade_info2"></font> <br> <font id="cellupgrade_info1"></font> <br> <font>Currently: </font> <font id="cellupgrade_info3"></font></button>
+            <br> <button id="regrow" onclick="regrow()" class="regrow"><font style="font-size: 40px">REGROW</font> <br> <font>Reset everything to gain </font> <font id="regrow_info1"></font> <font> entropy.</font> <br> <font style="font-size: 20px;">(3.0e91 cells required)</font></button></center>
+    </div>
+
+    <div id="entropy_content" style="font-family: Segoe UI;">
+        <center><font style="font-size: 20px; color: rgb(0, 255, 242); filter:opacity(0.5);">Entropy power is based on cells and best entropy.</font>
+        <br> <font style="font-size: 20px; color: rgb(0, 255, 242);">Your entropy power is </font> <font style="font-size: 40px; color: rgb(0, 255, 242);" id="entropy_info1"></font> <font style="font-size: 20px; color: rgb(0, 255, 242);">, boosting cell growth.</font>
+        <br> <font style="font-size: 20px; color: rgb(0, 255, 242); filter:opacity(0.5);">Your best entropy is </font> <font style="font-size: 40px; color: rgb(0, 255, 242); filter:opacity(0.5);" id="entropy_info2"></font>
+        <br> <font style="font-size: 30px; color: rgb(0, 255, 242);">You have </font> <font style="font-size: 40px; color: rgb(0, 255, 242);" id="entropy_info3"></font> <font style="font-size: 30px; color: rgb(0, 255, 242);"> entropy.</font>
+        <br> <font id="endgame" style="font-size: 60px; color: rgb(0, 255, 242); font-weight: bolder;">Entropy upgrades coming soon!</font></center>
+        </div>
+
+        <div id="options_content">
+            <center><font style="font-size: 45px; color: white; font-weight: bolder; font-family: Segoe UI; margin-right: 120px;">General</font>  <font style="font-size: 45px; color: white; font-weight: bolder; font-family: Segoe UI;  margin-left: 200px;">Credits</font>
+            <br> <button id="option1" onclick="changenot()" class="option" style="margin-right: 100px;"><font style="font-size: 20px;">Your notation is</font> <br> <font id="notation" style="font-size: 30px;"></font></button>  <font style="font-size: 25px; color: white; font-family: Segoe UI;">Credit to Alemaninc for infOP.js</font></center>
+        </div>
+</body>
+
+</html>
